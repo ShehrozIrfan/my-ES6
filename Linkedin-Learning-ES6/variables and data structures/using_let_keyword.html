@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Using let keyword</title>
+  <style>
+    #box {
+      display: flex;
+      justify-content: space-between;
+    }
+    #box > div {
+      height: 200px;
+      width: 200px;
+      background: hotpink;
+    }
+  </style>
+</head>
+<body>
+  <div id="box"></div>
+
+  <script type="text/javascript">
+    // var is global scope
+    var name = "Shehroz"
+    console.log("Initially: ", name) // Shehroz
+    if(name) {
+      name = "Shehroz Irfan"
+      console.log("Block: ", name) // Shehroz Irfan
+    }
+    console.log("Global: ", name) // Shehroz Irfan
+
+    console.log("==============")
+
+    // let is block scope
+    var name = "Shehroz" // Shehroz
+    console.log("Initially: ", name)
+    if(name) {
+      let name = "Shehroz Irfan" // block scope
+      console.log("Block: ", name) // Shehroz Irfan
+    }
+    console.log("Global: ", name) // Shehroz
+
+    console.log("==============")
+
+    var box = document.getElementById("box")
+    // replace 'let' with 'var' and see magic!
+    // let help us to enforce the block scope
+    for(let i = 0; i < 5; i ++) {
+      div = document.createElement("div");
+      div.onclick = function() {
+        console.log(i)
+        alert("The box # is: " + i);
+      }
+      box.appendChild(div)
+    }
+  </script>
+</body>
+</html>
