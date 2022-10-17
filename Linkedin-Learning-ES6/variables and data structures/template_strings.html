@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Template Strings</title>
+</head>
+<body>
+  <h1>Template Strings</h1>
+  <script type="text/javascript">
+    function print(name) {
+      console.log("Hello", name) // Hello Shehroz Irfan
+      console.log("Hello" + name) // HelloShehroz Irfan
+      console.log("Hello " + name) // Hello Shehroz Irfan
+
+      //using template strings
+      console.log(`Hello ${name}`)
+    }
+
+    print("Shehroz Irfan")
+
+    function create_email(first_name, price) {
+      let shipping = 120
+      // we can apply the line breaks, and template literal will apply it as it is on console.
+      console.log(`
+        Hi ${first_name},
+        Price: ${price},
+        Shipping: ${shipping},
+        Grand Total: ${ shipping + price }
+      `)
+    }
+
+    create_email("Alex", 300)
+  </script>
+</body>
+</html>
