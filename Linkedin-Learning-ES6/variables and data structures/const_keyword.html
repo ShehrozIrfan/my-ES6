@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Using const keyword</title>
+</head>
+<body>
+  <h1>Const</h1>
+  <script type="text/javascript">
+    var is_it_morning = true;
+
+    is_it_morning = false;
+    console.log(is_it_morning)
+
+    // so we use 'const' if we don't want the variable value to be reset
+    const is_it_raining = true
+
+    console.log("raining....")
+
+    is_it_raining = false // Error: Assignment to a constant variable
+  </script>
+</body>
+</html>
