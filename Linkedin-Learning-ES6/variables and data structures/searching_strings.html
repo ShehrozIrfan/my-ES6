@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Searching strings</title>
+  </head>
+  <body>
+    <h1>Searching Strings</h1>
+    <p>Using startsWith, endsWith, includes, search</p>
+    <script type="text/javascript">
+      const name = "Shehroz Irfan";
+      console.log(name.startsWith("S")); //true
+      console.log(name.startsWith("She")); //true
+      console.log(name.startsWith("he")); // false
+
+      console.log(name.endsWith("he")); // false
+      console.log(name.endsWith("n")); // true
+
+      console.log(name.includes("I")); // true
+      console.log(name.includes("roz")); // true
+      console.log(name.includes("hello")); // false
+
+      console.log(name.search("h")); // returns the index of first occurance - 1
+      console.log(name.search("roz")); // returns index - 4 - because 'r' is on index 4
+    </script>
+  </body>
+</html>
