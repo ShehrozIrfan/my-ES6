@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise</title>
+  </head>
+  <body>
+    <h1>Promise</h1>
+
+    <script>
+      // new Promise() - will create a promise
+      // and it has two parameters - resolve and reject
+      // we need to define the definition of both
+      let p = new Promise((resolve, reject) => {
+        // a = 1 + 2; rejected
+        a = 1 + 1; // resolved
+        if (a == 2) {
+          resolve("Success");
+        } else reject("Error");
+      });
+
+      console.log(p);
+
+      // then is used to resolve the promise
+      // if there is a reject from promise, we need to catch that error
+      p.then((message) => console.log(message)).catch((message) =>
+        console.log(message)
+      );
+    </script>
+  </body>
+</html>
