@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch</title>
+  </head>
+  <body>
+    <h1>Fetch</h1>
+
+    <script>
+      //We'll be using the API 'https://reqres.in/api/users/'
+
+      //Fetch takes the first argument as url and returns the promise
+      let hit = fetch("https://reqres.in/api/users/");
+      console.log(hit); // promise
+
+      //So, to resolve this we can use then
+      // res object have the information about request including the status, data etc
+      hit = fetch("https://reqres.in/api/users/").then((res) =>
+        console.log(res)
+      );
+
+      //To, get the data we need to use the res.json() and then it returns another promise
+      //we, need to resolve that using then, and we can access the data
+      hit = fetch("https://reqres.in/api/users/")
+        .then((res) => res.json())
+        .then((data) => console.log(data));
+
+      //Now let's get the user with id: 23, that doesn't exist the fetch returns 404 in this case
+      //But still the then block is executed, this how the fetch works, it always succeeds
+      //So, to capture the error we need to use the catch block
+      //we also need to check in the res block
+      hit = fetch("https://reqres.in/api/users/23")
+        .then((res) => {
+          if (res.ok) {
+            // ok checks for all the status from 200 - 299
+            console.log("SUCCESS");
+            res.json();
+          } else {
+            console.log("FAIL");
+          }
+        })
+        .then((data) => console.log(data))
+        .catch((error) => console.log("Error"));
+
+      //The second argument to the fetch is the options.
+      //In which we specify the options for posting the data, deleting or updating
+      hit = fetch("https://reqres.in/api/users", {
+        //you can specify any http method
+        method: "POST",
+        //Specify the headers, fetch works with json
+        headers: {
+          "Content-Type": "application/json",
+        },
+        //specifying the data
+        //we also need to stringify it, to convert the data to json string
+        body: JSON.stringify({
+          name: "John Doe",
+        }),
+      })
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          console.log(data);
+        });
+    </script>
+  </body>
+</html>
